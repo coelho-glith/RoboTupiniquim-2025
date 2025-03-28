@@ -18,6 +18,7 @@ namespace RoboTupiniquim
             primeiroRobo.EstabelecerPosicao(tamGrid);
 
             primeiroRobo.ApresentarPosicaoAtual();
+            primeiroRobo.MexerRobo();
         }
     }
 }

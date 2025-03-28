@@ -36,10 +36,14 @@
             int posicaoY = default;
 
             Console.WriteLine("Informe a posição inicial do robõ: ");
-            Console.Write("formato (X,Y): ");
+            Console.Write("formato (X,Y, (Direção)): ");
             string posicao = Console.ReadLine();
             string auxilioDePosicaoX = posicao[0].ToString();
             string auxilioDePosicaoY = posicao[2].ToString();
+
+            char auxilioDirecao = posicao[4];
+
+            string direcao = auxilioDirecao.ToString().ToUpper();
 
             while (!int.TryParse(auxilioDePosicaoX, out posicaoX) || (!int.TryParse(auxilioDePosicaoY, out posicaoY)))
             {
@@ -53,7 +57,40 @@
 
             PosicaoX = posicaoX;
             PosicaoY = posicaoY;
+            Direcao = Convert.ToChar(direcao);
+        }
 
+        public void MexerRobo()
+        {
+            Console.Clear();
+            Console.Write("Posição Atual");
+            ApresentarPosicaoAtual();
+            Console.WriteLine("\n Movimentos: \n");
+            Console.WriteLine("D -> Virar 90º para direita");
+            Console.WriteLine("E -> Virar 90º para esquerda");
+            Console.WriteLine("M -> Move uma posição na direção indicada que o Robô está olhando");
+
+            Console.Write("Insira a string de comando: ");
+            string movimentos = Console.ReadLine();
+
+            foreach (var movimento in movimentos)
+            {
+                switch (movimento)
+                {
+                    case 'E':
+
+                        break;
+                    case 'D':
+
+                        break;
+                    case 'M':
+
+                        break;
+                    default:
+
+                        break;
+                }
+            }
         }
     }
 }
