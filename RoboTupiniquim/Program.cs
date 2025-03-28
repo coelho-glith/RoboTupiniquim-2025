@@ -10,14 +10,14 @@ namespace RoboTupiniquim
             Console.WriteLine("O--------------------------O");
             Console.WriteLine("      Robôs Tupiniquins     ");
             Console.WriteLine("O--------------------------O");
-            Console.WriteLine("         Menu Inicial       ");
+            Console.WriteLine("        Menu Inicial        ");
             Console.WriteLine("O--------------------------O");
 
             RobosTupiniquins primeiroRobo = new RobosTupiniquins();
 
             RobosTupiniquins segundoRobo = new RobosTupiniquins();
 
-            string tamGrid = GerarGrid.CriarTerreno();
+            string[] tamGrid = GerarGrid.CriarTerreno();
 
             primeiroRobo.EstabelecerPosicao(tamGrid);
 

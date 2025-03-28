@@ -85,10 +85,10 @@
             Console.WriteLine();
         }
 
-        public void EstabelecerPosicao(string tamGrid)
+        public void EstabelecerPosicao(string[] tamGrid)
         {
-            string auxilioTamGridX = tamGrid[0].ToString();
-            string auxilioTamGridY = tamGrid[1].ToString();
+            string auxilioTamGridX = tamGrid[0];
+            string auxilioTamGridY = tamGrid[1];
 
             int gridX = Convert.ToInt32(auxilioTamGridX);
             int gridY = Convert.ToInt32(auxilioTamGridY);
@@ -100,7 +100,7 @@
             Console.Write("formato (X,Y, (Direção)): ");
             string posicao = Console.ReadLine();
             string auxilioDePosicaoX = posicao[0].ToString();
-            string auxilioDePosicaoY = posicao[2].ToString();
+            string auxilioDePosicaoY = posicao[1].ToString();
 
             char auxilioDirecao = posicao[4];
 
