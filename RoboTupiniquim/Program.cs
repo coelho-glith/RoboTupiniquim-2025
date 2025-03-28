@@ -13,7 +13,9 @@ namespace RoboTupiniquim
 
             RobosTupiniquins primeiroRobo = new RobosTupiniquins();
 
-            string[] tamGrid = GerarGrid.CriarTerreno();
+            string tamGrid = GerarGrid.CriarTerreno();
+
+            primeiroRobo.EstabelecerPosicao(tamGrid);
 
             primeiroRobo.ApresentarPosicaoAtual();
         }

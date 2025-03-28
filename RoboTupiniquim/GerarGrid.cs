@@ -2,17 +2,15 @@
 {
     public static class GerarGrid
     {
-        public static string[] CriarTerreno()
+        public static string CriarTerreno()
         {
             Console.Clear();
             Console.WriteLine("Informe o tamanho do grid: ");
             Console.Write("formato (X,Y): ");
             string grid = Console.ReadLine();
 
-            string[] posicao = grid.Split(' ', '\t');
-
-            string coordenadaMaxX = posicao[0];
-            string coordenadaMaxY = posicao[2];
+            string coordenadaMaxX = grid[0].ToString();
+            string coordenadaMaxY = grid[2].ToString();
 
             int posicaoX = default;
             int posicaoY = default;
@@ -22,13 +20,12 @@
                 Console.Write("Valores inválidos, tente novamente: ");
                 grid = Console.ReadLine();
 
-                posicao = grid.Split(' ', '\t');
-
-                coordenadaMaxX = posicao[0];
-                coordenadaMaxY = posicao[2];
+                coordenadaMaxX = grid[0].ToString();
+                coordenadaMaxY = grid[2].ToString();
             }
+            string gridfinal = String.Concat(new int[] { posicaoX, posicaoY });
 
-            return posicao;
+            return gridfinal;
         }
     }
 }

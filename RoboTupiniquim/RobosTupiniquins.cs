@@ -24,8 +24,14 @@
             Console.WriteLine($"{PosicaoX} {PosicaoY} {Direcao} \n");
         }
 
-        public void estabelecerPosicao(int[] grid)
+        public void EstabelecerPosicao(string tamGrid)
         {
+            string auxilioTamGridX = tamGrid[0].ToString();
+            string auxilioTamGridY = tamGrid[1].ToString();
+
+            int gridX = Convert.ToInt32(auxilioTamGridX);
+            int gridY = Convert.ToInt32(auxilioTamGridY);
+
             int posicaoX = default;
             int posicaoY = default;
 
@@ -37,12 +43,17 @@
 
             while (!int.TryParse(auxilioDePosicaoX, out posicaoX) || (!int.TryParse(auxilioDePosicaoY, out posicaoY)))
             {
+            ForaDaArea:
                 Console.Write("Valores inválidos, tente novamente: ");
                 posicao = Console.ReadLine();
 
                 auxilioDePosicaoX = posicao[0].ToString();
                 auxilioDePosicaoY = posicao[2].ToString();
             }
+
+            PosicaoX = posicaoX;
+            PosicaoY = posicaoY;
+
         }
     }
 }
