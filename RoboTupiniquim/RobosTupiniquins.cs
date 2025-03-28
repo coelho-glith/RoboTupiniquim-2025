@@ -71,7 +71,7 @@
             Console.WriteLine("M -> Move uma posição na direção indicada que o Robô está olhando");
 
             Console.Write("Insira a string de comando: ");
-            string movimentos = Console.ReadLine();
+            string movimentos = Console.ReadLine().ToUpper();
 
             foreach (var movimento in movimentos)
             {
@@ -79,11 +79,38 @@
                 {
                     case 'E':
 
+                        if (Direcao == 'N')
+                            Direcao = 'O';
+                        else if (Direcao == 'O')
+                            Direcao = 'S';
+                        else if (Direcao == 'S')
+                            Direcao = 'L';
+                        else if (Direcao == 'L')
+                            Direcao = 'N';
                         break;
+
                     case 'D':
 
+                        if (Direcao == 'N')
+                            Direcao = 'L';
+                        else if (Direcao == 'L')
+                            Direcao = 'S';
+                        else if (Direcao == 'S')
+                            Direcao = 'O';
+                        else if (Direcao == 'O')
+                            Direcao = 'N';
                         break;
+
                     case 'M':
+
+                        if (Direcao == 'N')
+                            PosicaoY++;
+                        else if (Direcao == 'S')
+                            PosicaoY--;
+                        else if (Direcao == 'L')
+                            PosicaoX++;
+                        else if (Direcao == 'O')
+                            PosicaoX--;
 
                         break;
                     default:
