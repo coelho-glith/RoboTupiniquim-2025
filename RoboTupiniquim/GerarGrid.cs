@@ -1,15 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RoboTupiniquim
+﻿namespace RoboTupiniquim
 {
     public static class GerarGrid
     {
-        public static string CriarTerreno(string coordenadaMaxX, string coordenadaMaxY, string grid)
+        public static string[] CriarTerreno()
         {
+            Console.Clear();
+            Console.WriteLine("Informe o tamanho do grid: ");
+            Console.Write("formato (X,Y): ");
+            string grid = Console.ReadLine();
+
+            string[] posicao = grid.Split(' ', '\t');
+
+            string coordenadaMaxX = posicao[0];
+            string coordenadaMaxY = posicao[2];
+
             int posicaoX = default;
             int posicaoY = default;
 
@@ -18,12 +22,13 @@ namespace RoboTupiniquim
                 Console.Write("Valores inválidos, tente novamente: ");
                 grid = Console.ReadLine();
 
-                coordenadaMaxX = grid[0].ToString();
-                coordenadaMaxY = grid[2].ToString();
-            }
-            string gridFinal = String.Concat(new int[] { posicaoX, posicaoY });
+                posicao = grid.Split(' ', '\t');
 
-            return gridFinal;
+                coordenadaMaxX = posicao[0];
+                coordenadaMaxY = posicao[2];
+            }
+
+            return posicao;
         }
     }
 }
