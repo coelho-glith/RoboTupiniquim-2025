@@ -16,7 +16,7 @@
             int posicaoX = default;
             int posicaoY = default;
 
-            while (!int.TryParse(coordenadaMaxX, out posicaoX) || (!int.TryParse(coordenadaMaxY, out posicaoY)))
+            while (!int.TryParse(coordenadaMaxX, out posicaoX) || (!int.TryParse(coordenadaMaxY, out posicaoY) || posicaoX < 0 || posicaoY < 0))
             {
                 Console.Write("Valores inválidos, tente novamente: ");
                 grid = Console.ReadLine();
@@ -25,6 +25,7 @@
 
                 coordenadaMaxX = posicao[0];
                 coordenadaMaxY = posicao[1];
+
             }
             int[] Terreno = { posicaoX, posicaoY };
 
