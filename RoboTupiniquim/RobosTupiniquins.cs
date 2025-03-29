@@ -24,7 +24,7 @@
             int gridY = tamgrid[1];
 
             Console.Clear();
-            Console.Write("Posição Atual: ");
+            Console.Write("Posição Atual");
             ApresentarPosicaoAtual();
             Console.WriteLine("Movimentos: ");
             Console.WriteLine("D -> Virar 90º para direita");
@@ -36,12 +36,6 @@
 
             foreach (var movimento in movimentos)
             {
-                if (PosicaoX < 0 || PosicaoY < 0 || PosicaoX > gridX || PosicaoY > gridY)
-                {
-                    Console.WriteLine("O Robô esta fora do Radar!");
-                    ForaDoMapa = true;
-                    return;
-                }
 
                 switch (movimento)
                 {
@@ -85,13 +79,21 @@
 
                         break;
                 }
+
+                if (PosicaoX < 0 || PosicaoY < 0 || PosicaoX > gridX || PosicaoY > gridY)
+                {
+                    Console.WriteLine("O Robô esta fora do Radar!");
+                    Console.WriteLine("infelizmente foi Perdido o Robô, essa foi a posição final fora da área.");
+                    ForaDoMapa = true;
+                    return;
+                }
             }
         }
 
         public void ApresentarPosicaoAtual()
         {
-            Console.WriteLine($"{PosicaoX} {PosicaoY} {Direcao} ");
-            Console.WriteLine("O---------------------------------O");
+            Console.WriteLine($" {PosicaoX} {PosicaoY} {Direcao}");
+            Console.WriteLine();
             Console.ReadLine();
         }
 
@@ -131,10 +133,10 @@
         }
         public bool PosicaOcupada(RobosTupiniquins robo)
         {
-           if (PosicaoX == robo.PosicaoX && PosicaoY == robo.PosicaoY)
+            if (PosicaoX == robo.PosicaoX && PosicaoY == robo.PosicaoY)
                 return true;
-           else
+            else
                 return false;
-        } 
+        }
     }
 }
