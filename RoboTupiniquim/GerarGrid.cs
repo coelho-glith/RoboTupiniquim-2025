@@ -27,8 +27,6 @@
                 coordenadaMaxX = posicao[0];
                 coordenadaMaxY = posicao[1];
             }
-            
-
             return posicao;
         }
     }

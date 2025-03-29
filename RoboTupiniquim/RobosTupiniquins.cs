@@ -98,22 +98,24 @@
 
             Console.WriteLine("Informe a posição inicial do robõ: ");
             Console.Write("formato (X,Y, (Direção)): ");
-            string posicao = Console.ReadLine();
-            string auxilioDePosicaoX = posicao[0].ToString();
-            string auxilioDePosicaoY = posicao[1].ToString();
+            string auxilioPosicao = Console.ReadLine();
 
-            char auxilioDirecao = posicao[4];
+            string[] posicao = auxilioPosicao.Split(' ', '\t');
 
-            string direcao = auxilioDirecao.ToString().ToUpper();
+            string auxilioDePosicaoX = posicao[0];
+            string auxilioDePosicaoY = posicao[1];
 
-            while (!int.TryParse(auxilioDePosicaoX, out posicaoX) || (!int.TryParse(auxilioDePosicaoY, out posicaoY)))
+            string direcao = posicao[2].ToString().ToUpper();
+
+            while (!int.TryParse(auxilioDePosicaoX, out posicaoX) || (!int.TryParse(auxilioDePosicaoY, out posicaoY)) ||
+                 (direcao != "N") && (direcao != "S") && (direcao != "L") && (direcao != "O"))
             {
-            ForaDaArea:
                 Console.Write("Valores inválidos, tente novamente: ");
-                posicao = Console.ReadLine();
+                auxilioPosicao = Console.ReadLine();
 
-                auxilioDePosicaoX = posicao[0].ToString();
-                auxilioDePosicaoY = posicao[2].ToString();
+                auxilioDePosicaoX = posicao[0];
+                auxilioDePosicaoY = posicao[1];
+                direcao = posicao[2].ToString().ToUpper();
             }
 
             PosicaoX = posicaoX;
