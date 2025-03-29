@@ -19,8 +19,15 @@
             ForaDoMapa = false;
         }
 
-        public void MexerRobo()
+        public void MexerRobo(string[] tamgrid)
         {
+            string auxGridX = tamgrid[0];
+            string auxGridY = tamgrid[1];
+
+            int gridX = Convert.ToInt32(auxGridX);
+            int gridY = Convert.ToInt32(auxGridY);
+
+
             Console.Clear();
             Console.Write("Posição Atual");
             ApresentarPosicaoAtual();
@@ -29,11 +36,18 @@
             Console.WriteLine("E -> Virar 90º para esquerda");
             Console.WriteLine("M -> Move uma posição na direção indicada que o Robô está olhando");
 
-            Console.Write("Insira a string de comando: ");
+            Console.Write("Informe uma string de comando: ");
             string movimentos = Console.ReadLine().ToUpper();
 
             foreach (var movimento in movimentos)
             {
+                if (PosicaoX < 0 || PosicaoY < 0 || PosicaoX > gridX || PosicaoY > gridY)
+                {
+                    Console.WriteLine("O Robô esta fora do Radar!");
+                    ForaDoMapa = true;
+                    return;
+                }
+
                 switch (movimento)
                 {
                     case 'E':
