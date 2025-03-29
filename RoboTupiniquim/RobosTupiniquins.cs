@@ -5,7 +5,6 @@
         public int PosicaoX { get; set; }
         public int PosicaoY { get; set; }
         public char Direcao { get; set; }
-
         public bool ForaDoMapa { get; set; }
 
         public RobosTupiniquins()
@@ -19,19 +18,15 @@
             ForaDoMapa = false;
         }
 
-        public void MexerRobo(string[] tamgrid)
+        public void MexerRobo(int[] tamgrid)
         {
-            string auxGridX = tamgrid[0];
-            string auxGridY = tamgrid[1];
-
-            int gridX = Convert.ToInt32(auxGridX);
-            int gridY = Convert.ToInt32(auxGridY);
-
+            int gridX = tamgrid[0];
+            int gridY = tamgrid[1];
 
             Console.Clear();
             Console.Write("Posição Atual");
             ApresentarPosicaoAtual();
-            Console.WriteLine("\n Movimentos: \n");
+            Console.WriteLine("Movimentos: ");
             Console.WriteLine("D -> Virar 90º para direita");
             Console.WriteLine("E -> Virar 90º para esquerda");
             Console.WriteLine("M -> Move uma posição na direção indicada que o Robô está olhando");
@@ -95,17 +90,15 @@
 
         public void ApresentarPosicaoAtual()
         {
-            Console.WriteLine($"{PosicaoX} {PosicaoY} {Direcao}");
+            Console.WriteLine($" {PosicaoX} {PosicaoY} {Direcao}");
             Console.WriteLine();
+            Console.ReadLine();
         }
 
-        public void EstabelecerPosicao(string[] tamGrid)
+        public void EstabelecerPosicao(int[] tamGrid)
         {
-            string auxilioTamGridX = tamGrid[0];
-            string auxilioTamGridY = tamGrid[1];
-
-            int gridX = Convert.ToInt32(auxilioTamGridX);
-            int gridY = Convert.ToInt32(auxilioTamGridY);
+            int auxilioTamGridX = tamGrid[0];
+            int auxilioTamGridY = tamGrid[1];
 
             int posicaoX = default;
             int posicaoY = default;
@@ -135,6 +128,13 @@
             PosicaoX = posicaoX;
             PosicaoY = posicaoY;
             Direcao = Convert.ToChar(direcao);
-        }            
+        }
+        public bool PosicaOcupada(RobosTupiniquins robo)
+        {
+           if (PosicaoX == robo.PosicaoX && PosicaoY == robo.PosicaoY)
+                return true;
+           else
+                return false;
+        } 
     }
 }

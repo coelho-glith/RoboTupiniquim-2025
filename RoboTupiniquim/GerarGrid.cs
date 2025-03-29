@@ -2,9 +2,8 @@
 {
     public static class GerarGrid
     {
-        public static string[] CriarTerreno()
+        public static int[] CriarTerreno()
         {
-            Console.Clear();
             Console.WriteLine("Informe o tamanho do grid: ");
             Console.Write("formato (X,Y): ");
             string grid = Console.ReadLine();
@@ -27,7 +26,9 @@
                 coordenadaMaxX = posicao[0];
                 coordenadaMaxY = posicao[1];
             }
-            return posicao;
+            int[] Terreno = { posicaoX, posicaoY };
+
+            return Terreno;
         }
     }
 }

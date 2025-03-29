@@ -7,17 +7,13 @@ namespace RoboTupiniquim
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("O--------------------------O");
-            Console.WriteLine("      Robôs Tupiniquins     ");
-            Console.WriteLine("O--------------------------O");
-            Console.WriteLine("        Menu Inicial        ");
-            Console.WriteLine("O--------------------------O");
+            Menu.ExibirMenu();
 
             RobosTupiniquins primeiroRobo = new RobosTupiniquins();
 
             RobosTupiniquins segundoRobo = new RobosTupiniquins();
 
-            string[] tamGrid = GerarGrid.CriarTerreno();
+            int[] tamGrid = GerarGrid.CriarTerreno();
 
             primeiroRobo.EstabelecerPosicao(tamGrid);
 
@@ -33,6 +29,10 @@ namespace RoboTupiniquim
 
             segundoRobo.ApresentarPosicaoAtual();
 
+            if (segundoRobo.PosicaOcupada(primeiroRobo) == true)
+            {
+                Console.WriteLine("GREAT ERROR: O Robô Bateu no outro Robô, trazer de volta para arrumar.");
+            }
         }
     }
 }
