@@ -24,7 +24,7 @@
             int gridY = tamgrid[1];
 
             Console.Clear();
-            Console.Write("Posição Atual");
+            Console.Write("Posição Atual: ");
             ApresentarPosicaoAtual();
             Console.WriteLine("Movimentos: ");
             Console.WriteLine("D -> Virar 90º para direita");
@@ -90,8 +90,8 @@
 
         public void ApresentarPosicaoAtual()
         {
-            Console.WriteLine($" {PosicaoX} {PosicaoY} {Direcao}");
-            Console.WriteLine();
+            Console.WriteLine($"{PosicaoX} {PosicaoY} {Direcao} ");
+            Console.WriteLine("O---------------------------------O");
             Console.ReadLine();
         }
 
