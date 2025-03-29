@@ -29,7 +29,7 @@ namespace RoboTupiniquim
 
             segundoRobo.EstabelecerPosicao(tamGrid);
 
-            segundoRobo.MexerRobo();
+            segundoRobo.MexerRobo(tamGrid);
 
             segundoRobo.ApresentarPosicaoAtual();
 
